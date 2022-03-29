@@ -1,28 +1,26 @@
 #include<stdio.h>
 #include<math.h>
 
-#define LENGTH 7
+#define LENGTH 15
+#define MAX_RUN_LENGTH 4
 
 int found_one(int array[]){
     int count=0;
-    for (int i = 0; i < 7; ++i) {
-        if(array[i]==1){
+    for (int i = 0; i < LENGTH; ++i)
+        if(array[i]==1)
             count++;
-        }
-    }
     return count;
 }
 
 void initial_a(int array[]){
-    for (int i = 0; i < LENGTH; ++i) {
+    for (int i = 0; i < LENGTH; ++i)
         array[i] = 0;
-    }
 }
 
 void print_array(int array[]){
-    for(int n = 7; n > 0; n--)
+    for(int n = LENGTH; n > 0; n--)
         printf("%d",array[n - 1]);
-    printf("\n");
+    //printf("\n");
 }
 
 void found_runs_needed(int total_runs, int array[]){
@@ -58,12 +56,9 @@ bool check_total_runs(int total_runs, int array[]){
         return false;
 }
 
-bool found_runs(int total_runs, int array[]){
+bool found_runs(int array[]){
     int pre;
     int count = 0;
-    int length = 0;
-    int run_count = 0;
-
 
     for (int i = 0; i < LENGTH; ++i) {
         if (i==0)
@@ -76,10 +71,8 @@ bool found_runs(int total_runs, int array[]){
 
         count++;
 
-        if(count == 3)
+        if(count == MAX_RUN_LENGTH)
             return true;
-
-
     }
     return false;
 }
@@ -93,11 +86,12 @@ void shift(int array[], int target[], int shift_len){
 bool function_C(int array[], int shift_array[]){
     int answer_of_all_C = 0;
     int answer;
-    printf("\nC(t) of shift i\n");
-    printf("   t: ");
-    for (int k = 1; k < LENGTH; ++k)
+    //printf("\nC(t) of shift i\n   t: ");
+
+    /*for (int k = 1; k < LENGTH; ++k)
         printf("%2d ", k);
     printf("\nC(t): ");
+     */
     for (int i = 1; i < LENGTH; ++i) {
 
         answer = 0;
@@ -108,7 +102,38 @@ bool function_C(int array[], int shift_array[]){
             else
                 answer --;
         }
-        printf("%d ", answer);
+        //printf("%d ", answer);
+        if(i == 1)
+            answer_of_all_C = answer;
+        else if (answer!=answer_of_all_C){
+            //printf("Fail when shift %d\n\n", i);
+            return false;
+        }
+    }
+    //printf("\n");
+    return true;
+}
+
+bool print_function_C(int array[], int shift_array[]){
+    int answer_of_all_C = 0;
+    int answer;
+    printf("\nC(t) of shift i\n   t: ");
+
+    for (int k = 1; k < LENGTH; ++k)
+        printf("%3d ", k);
+    printf("\nC(t): ");
+
+    for (int i = 1; i < LENGTH; ++i) {
+
+        answer = 0;
+        shift(array, shift_array, i);
+        for (int j = 0; j < LENGTH; ++j) {
+            if(array[j] == shift_array[j])
+                answer ++;
+            else
+                answer --;
+        }
+        printf("%3d ", answer);
         if(i == 1)
             answer_of_all_C = answer;
         else if (answer!=answer_of_all_C){
@@ -116,7 +141,7 @@ bool function_C(int array[], int shift_array[]){
             return false;
         }
     }
-    printf("\n");
+    printf("\n\n");
     return true;
 }
 
@@ -125,7 +150,7 @@ int main(void)
     int i=0;
     int n;
     int a[LENGTH];
-    int runs[LENGTH / 2];
+    //int runs[LENGTH / 2];
     int count;
     int R1count = 0;
     int R2count = 0;
@@ -138,7 +163,8 @@ int main(void)
     else
         total_runs = LENGTH / 2;
 
-    found_runs_needed(total_runs,runs);
+    //printf("%d", total_runs);
+    //found_runs_needed(total_runs,runs);
 
     for (int j = 0; j < pow(2, LENGTH); ++j) {
         initial_a(a);
@@ -151,10 +177,11 @@ int main(void)
         }
         count = found_one(a);
         if(count==(LENGTH/2) || count==((LENGTH+1)/2)){
-            if(check_total_runs(total_runs, a)&& found_runs(total_runs, a)){
+            if(check_total_runs(total_runs, a)&& found_runs(a)){ //
                 if(function_C(a, shift_array)){
-                    printf("%3d: ", j);
+                    printf("\n%6d: ", j);
                     print_array(a);
+                    print_function_C(a, shift_array);
                     R3count++;
                 }
                 R2count++;

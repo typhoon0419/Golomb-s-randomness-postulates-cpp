@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/ESA LAB/Desktop/Information Security/cmake-build-debug"
+			"value" : "c:/Users/ESA LAB/Desktop/Files/course/110-2/Information Security/HW_1 Information Security/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -623,7 +623,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/ESA LAB/Desktop/Information Security"
+			"value" : "C:/Users/ESA LAB/Desktop/Files/course/110-2/Information Security/HW_1 Information Security"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1239,7 +1239,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/ESA LAB/Desktop/Information Security/cmake-build-debug"
+			"value" : "C:/Users/ESA LAB/Desktop/Files/course/110-2/Information Security/HW_1 Information Security/cmake-build-debug"
 		},
 		{
 			"name" : "Information_Security_IS_TOP_LEVEL",
@@ -1263,7 +1263,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/ESA LAB/Desktop/Information Security"
+			"value" : "C:/Users/ESA LAB/Desktop/Files/course/110-2/Information Security/HW_1 Information Security"
 		}
 	],
 	"kind" : "cache",

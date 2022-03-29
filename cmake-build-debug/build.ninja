@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/ESA$ LAB/Desktop/Information$ Security/cmake-build-debug/
+cmake_ninja_workdir = C$:/Users/ESA$ LAB/Desktop/Files/course/110-2/Information$ Security/HW_1$ Information$ Security/cmake-build-debug/
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\ESA LAB\Desktop\Information Security\cmake-build-debug" && "C:\Users\ESA LAB\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.7172.20\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\ESA LAB\Desktop\Files\course\110-2\Information Security\HW_1 Information Security\cmake-build-debug" && "C:\Users\ESA LAB\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.7172.20\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -60,7 +60,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_Information_Security: phony || CMakeFiles/Information_Security.dir
 
-build CMakeFiles/Information_Security.dir/main.cpp.obj: CXX_COMPILER__Information_Security_Debug C$:/Users/ESA$ LAB/Desktop/Information$ Security/main.cpp || cmake_object_order_depends_target_Information_Security
+build CMakeFiles/Information_Security.dir/main.cpp.obj: CXX_COMPILER__Information_Security_Debug C$:/Users/ESA$ LAB/Desktop/Files/course/110-2/Information$ Security/HW_1$ Information$ Security/main.cpp || cmake_object_order_depends_target_Information_Security
   DEP_FILE = CMakeFiles\Information_Security.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\Information_Security.dir
@@ -92,7 +92,7 @@ build Information_Security.exe: CXX_EXECUTABLE_LINKER__Information_Security_Debu
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\ESA LAB\Desktop\Information Security\cmake-build-debug" && "C:\Users\ESA LAB\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.7172.20\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S"C:\Users\ESA LAB\Desktop\Information Security" -B"C:\Users\ESA LAB\Desktop\Information Security\cmake-build-debug""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\ESA LAB\Desktop\Files\course\110-2\Information Security\HW_1 Information Security\cmake-build-debug" && "C:\Users\ESA LAB\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.7172.20\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S"C:\Users\ESA LAB\Desktop\Files\course\110-2\Information Security\HW_1 Information Security" -B"C:\Users\ESA LAB\Desktop\Files\course\110-2\Information Security\HW_1 Information Security\cmake-build-debug""
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -110,7 +110,7 @@ build Information_Security: phony Information_Security.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/ESA LAB/Desktop/Information Security/cmake-build-debug
+# Folder: C:/Users/ESA LAB/Desktop/Files/course/110-2/Information Security/HW_1 Information Security/cmake-build-debug
 
 build all: phony Information_Security.exe
 
