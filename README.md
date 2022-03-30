@@ -45,12 +45,12 @@ After running, you will get something like this:
  
 ![This image is the C(t) fuction.](/img/03_CT.png "This image is the C(t) fuction.")
 
-To pass the **rule 1**, I use **`found_one`** function to find the amount of 1 in `s`. Then check the amounts in line 179.  
+To meet the **rule 1**, I use **`found_one`** function to find the amount of 1 in `s`. Then check the amounts in line 179.  
 
-To pass the **rule 2**, I use **`check_total_runs`** function to check is the `s`'s total runs is equal to the correct one. And use **`found_runs`** function to check is the `MAX_RUN_LENGTH` exist?  
+To meet the **rule 2**, I use **`check_total_runs`** function to check is the `s`'s total runs is equal to the correct one. And use **`found_runs`** function to check is the `MAX_RUN_LENGTH` exist?  
 I found out that when the total runs is correct and `MAX_RUN_LENGTH` exist, the `s` must meet the **rule 2**.  Then check if it fit the rule in line 180.
 
-To pass the **rule 3**, I use **`function_C`** function to calculate the value, and check is the value the same when **shift 1 to LENGTH-1**.
+To meet the **rule 3**, I use **`function_C`** function to calculate the value, and check is the value the same when **shift 1 to LENGTH-1**.
 
 At last, I print the `s` that conform to all the rules. 
 
