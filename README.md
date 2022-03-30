@@ -56,4 +56,6 @@ To meet the **rule 3**, I use **`function_C`** function to calculate the value, 
 
 At last, I print the `s` that conform to all the rules. 
 
-各位有修資安的朋朋可以參考, 但請不要直接拿原始碼去影印喔! :D
+## 給所有有修資訊安全的同學們
+抱歉了我的英文真的PRO到不行, 如果有問題可以在這邊問我, 我有能力就盡量回答.
+另外需要的同學可以參考, 但請不要直接拿原始碼去交作業喔!
