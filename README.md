@@ -29,7 +29,8 @@ The output include:
 1. The amounts of conform to **Rule 2**.
 1. The amounts of conform to **Rule 3**.
 
-After running, you will get something like this:
+After running, you will get something below (the result is running in `LENGTH`=3, `MAX_RUN_LENGTH`=2):  
+
 ![This image is the result when LENGTH=3 and MAX_RUN_LENGTH=2.](/img/02_result_example.png "This image is the result when LENGTH=3 and MAX_RUN_LENGTH=2.") 
 
 
