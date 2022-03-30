@@ -37,11 +37,11 @@ After running, you will get something like this:
 ```0 to 2^LENGTH-1``` is be checked that did it conform to the rules of Golomb's randomness postulates.
 
 * **Rule 1**: In the cycle of `s`, the number of 1's differs from the number of 0's by **at most 1**. 
- * If `s` is a 7 bits sequence, the amounts of 1 can be 3 or 4.
+  * If `s` is a 7 bits sequence, the amounts of 1 can be 3 or 4.
 * **Rule 2**: In the cycle of `s`, at least **1/2** of runs have length 1, at least **1/4** have length 2, at least **1/8** have length 3, etc. 
- * If `s` is a 7 bits sequence, there are 2 runs of length 1, 1 of length 2, 1 of length 3. The total run is 4 runs.
+  * If `s` is a 7 bits sequence, there are 2 runs of length 1, 1 of length 2, 1 of length 3. The total run is 4 runs.
 * **Rule 3**: The autocorrelation function C(t).
- * In this code, we do the C(t) in the way that show below. That when meet the same number, do **+1**, else do **-1**. The value should be the same no matter how many times to shift. 
+  * In this code, we do the C(t) in the way that show below. That when meet the same number, do **+1**, else do **-1**. The value should be the same no matter how many times to shift. 
  
 ![This image is the C(t) fuction.](/img/03_CT.png "This image is the C(t) fuction.")
 
