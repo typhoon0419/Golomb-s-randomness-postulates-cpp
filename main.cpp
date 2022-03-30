@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<math.h>
 
-#define LENGTH 15
-#define MAX_RUN_LENGTH 4
+#define LENGTH 7
+#define MAX_RUN_LENGTH 3
 
 int found_one(int array[]){
     int count=0;
@@ -166,7 +166,7 @@ int main(void)
     //printf("%d", total_runs);
     //found_runs_needed(total_runs,runs);
 
-    for (int j = 0; j < pow(2, LENGTH); ++j) {
+    for (long j = 0; j < pow(2, LENGTH); ++j) {
         initial_a(a);
         i=0;
         n = j;
@@ -179,7 +179,7 @@ int main(void)
         if(count==(LENGTH/2) || count==((LENGTH+1)/2)){
             if(check_total_runs(total_runs, a)&& found_runs(a)){ //
                 if(function_C(a, shift_array)){
-                    printf("\n%6d: ", j);
+                    printf("%2d: ", j);
                     print_array(a);
                     print_function_C(a, shift_array);
                     R3count++;
