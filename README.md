@@ -12,7 +12,7 @@ You can change seqeunce length and the max run length of the sequence in the top
 ## You can try these combinations:
 
  | LENGTH  | MAX_RUN_LENGTH |
- | ------------- |:-------------:|
+ | :-------------: |:-------------:|
  | 7      | 3     |
  | 15      | 4     |
  | 31      | 5     |
@@ -35,7 +35,8 @@ After running, you will get something below (the result is running in `LENGTH`=3
 
 
 ## How do I let it work
-```0 to 2^LENGTH-1``` is be checked that did it conform to the rules of Golomb's randomness postulates.
+The goal is to find all `s` that conform to the Golomb's randomness postulates rules.  
+
 
 * **Rule 1**: In the cycle of `s`, the number of 1's differs from the number of 0's by **at most 1**. 
   * If `s` is a 7 bits sequence, the amounts of 1 can be 3 or 4.
