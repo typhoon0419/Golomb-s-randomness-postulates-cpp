@@ -34,7 +34,7 @@ void found_runs_needed(int total_runs, int array[]){
     }
 }
 
-bool check_total_runs(int total_runs, int array[]){
+int found_run(int array[]){
     int pre;
     int count_of_runs = 0;
     for (int i = 0; i < LENGTH; ++i) {
@@ -48,33 +48,39 @@ bool check_total_runs(int total_runs, int array[]){
             count_of_runs++;
         }
     }
-    //printf("\ncount_of_runs = %d\n", count_of_runs);
-
-    if(total_runs == count_of_runs)
-        return true;
-    else
-        return false;
+    return count_of_runs;
 }
 
-bool found_runs(int array[]){
+int get_runs_max_amount(int total_runs, int length){
+    return ceil(total_runs/ pow(2,length));
+}
+
+bool check_total_runs(int total_runs, int array[]){
     int pre;
-    int count = 0;
+    int count_length = 0; //算幾個runs
+    int count_amounts = 0;//算run長
+    int max_amounts;
 
-    for (int i = 0; i < LENGTH; ++i) {
-        if (i==0)
-            pre = array[i];
-
-        if(array[i] != pre){
-            count = 0;
-            pre = array[i];
+    for (int i = 1; i < LENGTH / 2; ++i) {
+        max_amounts = get_runs_max_amount(total_runs, i);
+        for (int j = 0; j < LENGTH; ++j) {
+            if (array[j] != pre){
+                if (count_length == i){
+                    count_amounts ++;
+                }
+                pre = array[j];
+                count_length = 0;
+            }
+            count_length ++;
         }
-
-        count++;
-
-        if(count == MAX_RUN_LENGTH)
-            return true;
+        if(max_amounts == count_amounts || max_amounts-1 == count_amounts){
+            count_amounts = 0;
+        } else{
+            return false;
+        }
     }
-    return false;
+    return true;
+    //printf("\ncount_of_runs = %d\n", count_of_runs);
 }
 
 void shift(int array[], int target[], int shift_len){
@@ -158,10 +164,7 @@ int main(void)
     int shift_array[LENGTH];
 
     int total_runs;
-    if(LENGTH % 2)
-        total_runs = (LENGTH + 1) / 2;
-    else
-        total_runs = LENGTH / 2;
+
 
     //printf("%d", total_runs);
     //found_runs_needed(total_runs,runs);
@@ -177,7 +180,8 @@ int main(void)
         }
         count = found_one(a);
         if(count==(LENGTH/2) || count==((LENGTH+1)/2)){
-            if(check_total_runs(total_runs, a)&& found_runs(a)){ //
+            total_runs = found_run(a);
+            if(check_total_runs(total_runs, a)){
                 if(function_C(a, shift_array)){
                     printf("%2d: ", j);
                     print_array(a);
