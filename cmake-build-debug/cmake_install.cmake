@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/ESA LAB/Desktop/Files/course/110-2/Information Security/HW_1 Information Security
+# Install script for directory: D:/cpp_projects/Golomb-s-randomness-postulates
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/ESA LAB/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5080.224/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/shiny0419/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5080.224/bin/mingw/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/ESA LAB/Desktop/Files/course/110-2/Information Security/HW_1 Information Security/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/cpp_projects/Golomb-s-randomness-postulates/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

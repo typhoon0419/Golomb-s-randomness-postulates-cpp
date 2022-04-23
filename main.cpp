@@ -2,7 +2,6 @@
 #include<math.h>
 
 #define LENGTH 7
-#define MAX_RUN_LENGTH 3
 
 int found_one(int array[]){
     int count=0;
@@ -11,27 +10,14 @@ int found_one(int array[]){
             count++;
     return count;
 }
-
 void initial_a(int array[]){
     for (int i = 0; i < LENGTH; ++i)
         array[i] = 0;
 }
-
 void print_array(int array[]){
     for(int n = LENGTH; n > 0; n--)
         printf("%d",array[n - 1]);
     //printf("\n");
-}
-
-void found_runs_needed(int total_runs, int array[]){
-    for (int i = 0; i < LENGTH / 2; ++i) {
-        if(total_runs == 1){
-            array[i]=1;
-            break;
-        }
-        array[i]=total_runs/2;
-        total_runs = total_runs/2;
-    }
 }
 
 int found_run(int array[]){
@@ -57,30 +43,74 @@ int get_runs_max_amount(int total_runs, int length){
 
 bool check_total_runs(int total_runs, int array[]){
     int pre;
-    int count_length = 0; //算幾個runs
-    int count_amounts = 0;//算run長
+    int len_count, amounts_count = 0;//算run長
     int max_amounts;
+    int gap, block; //0, 1
 
-    for (int i = 1; i < LENGTH / 2; ++i) {
+    for (int i = 1; i <= LENGTH / 2; ++i) {
+        gap = 0;
+        block = 0;
         max_amounts = get_runs_max_amount(total_runs, i);
+        len_count = 0;
+        pre = array[0];
         for (int j = 0; j < LENGTH; ++j) {
-            if (array[j] != pre){
-                if (count_length == i){
-                    count_amounts ++;
+            if (j == LENGTH -1){
+                if (pre != array[j]){
+                    if (len_count == i){
+                        amounts_count ++;
+                        if (array[j-1] == 1)
+                            block ++;
+                        else
+                            gap ++;
+                    }
+                    len_count = 1;
+                    if (len_count == i){
+                        amounts_count ++;
+                        if (array[j] == 1)
+                            block ++;
+                        else
+                            gap ++;
+                    }
+                } else{
+                    len_count++;
+                    if (len_count == i){
+                        amounts_count ++;
+                        if (array[j-1] == 1)
+                            block ++;
+                        else
+                            gap ++;
+                    }
                 }
-                pre = array[j];
-                count_length = 0;
             }
-            count_length ++;
+            else if (pre == array[j]){
+                len_count ++;
+            }
+            else{
+                if (len_count == i){
+                    amounts_count ++;
+                    if (array[j-1] == 1)
+                        block ++;
+                    else
+                        gap ++;
+                }
+                len_count = 1;
+            }
+            pre = array[j];
         }
-        if(max_amounts == count_amounts || max_amounts-1 == count_amounts){
-            count_amounts = 0;
-        } else{
+        if (abs((gap - block)) >= 2){
             return false;
         }
+        //printf("%d:%d ", i,amounts_count);
+        if ( total_runs % int(pow(2,i)) == 0 && max_amounts == amounts_count){
+            amounts_count = 0;
+        }
+        else if(max_amounts == amounts_count || max_amounts - 1 == amounts_count){
+            amounts_count = 0;
+        }
+        else
+            return false;
     }
     return true;
-    //printf("\ncount_of_runs = %d\n", count_of_runs);
 }
 
 void shift(int array[], int target[], int shift_len){
@@ -99,7 +129,6 @@ bool function_C(int array[], int shift_array[]){
     printf("\nC(t): ");
      */
     for (int i = 1; i < LENGTH; ++i) {
-
         answer = 0;
         shift(array, shift_array, i);
         for (int j = 0; j < LENGTH; ++j) {
@@ -183,7 +212,7 @@ int main(void)
             total_runs = found_run(a);
             if(check_total_runs(total_runs, a)){
                 if(function_C(a, shift_array)){
-                    printf("%2d: ", j);
+                    printf("\n%3d: ", j);
                     print_array(a);
                     print_function_C(a, shift_array);
                     R3count++;
