@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 
-#define LENGTH 7
+#define LENGTH 3
 
 int found_one(int array[]){
     int count=0;
@@ -212,7 +212,7 @@ int main(void)
             total_runs = found_run(a);
             if(check_total_runs(total_runs, a)){
                 if(function_C(a, shift_array)){
-                    printf("\n%3d: ", j);
+                    printf("%3d: ", j);
                     print_array(a);
                     print_function_C(a, shift_array);
                     R3count++;
