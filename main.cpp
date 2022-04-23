@@ -41,7 +41,7 @@ int get_runs_max_amount(int total_runs, int length){
     return ceil(total_runs/ pow(2,length));
 }
 
-bool check_total_runs(int total_runs, int array[]){
+bool check_runs(int total_runs, int array[]){
     int pre;
     int len_count, amounts_count = 0;//算run長
     int max_amounts;
@@ -210,7 +210,7 @@ int main(void)
         count = found_one(a);
         if(count==(LENGTH/2) || count==((LENGTH+1)/2)){
             total_runs = found_run(a);
-            if(check_total_runs(total_runs, a)){
+            if(check_runs(total_runs, a)){
                 if(function_C(a, shift_array)){
                     printf("%3d: ", j);
                     print_array(a);
